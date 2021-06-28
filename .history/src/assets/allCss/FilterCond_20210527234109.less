@@ -1,0 +1,35 @@
+@color: rgb(194, 194, 194);
+.filterCond {
+  .title {
+    color: @color;
+    font-weight: 800;
+  }
+  .el-checkbox-button__inner {
+    color: @color;
+    border-color: fade(@color, 60%);
+    border-left: 1px solid fade(@color, 60%);
+    box-shadow: none;
+  }
+  .el-checkbox-button.is-checked .el-checkbox-button__inner {
+    color: @color;
+    border-color: fade(@color, 60%);
+    background-color: fade(@color, 25%);
+    box-shadow: none;
+  }
+  .el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
+    border-left-color: fade(@color, 60%);
+  }
+  .el-checkbox-button.is-focus .el-checkbox-button__inner {
+    color: @color;
+    border-color: fade(@color, 60%);
+  }
+  .el-radio-button__inner {
+    color: @color;
+  }
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    color: @color;
+    border-color: fade(@color, 60%);
+    background-color: fade(@color, 25%);
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,99 @@
+@media (max-width: 600px) {
+  .filter {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .contentWrapper {
+    padding: 0 100px;
+  }
+
+  .filter {
+    margin-left: 11.5rem;
+  }
+
+  .page {
+    margin-left: 9.6rem;
+  }
+}
+
+.life {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  .contentWrapper {
+    .icon-empty {
+      display: block;
+      font-size: 32px;
+      // color: @color;
+    }
+
+    .content {
+      margin: 20px 0;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      img {
+        height: 250px;
+        width: 100%;
+        cursor: pointer;
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top;
+      }
+
+      .info {
+        padding: 1rem 0;
+
+        b {
+          display: block;
+          font-size: 1.8rem;
+          padding-bottom: 0.4rem;
+        }
+
+        span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .desc {
+          display: block;
+          width: 100%;
+          font-size: 1.4rem;
+          padding: 8px 0 10px 0;
+        }
+
+        .read {
+          display: flex;
+          justify-content: start;
+
+          span {
+            width: 100%;
+          }
+
+          span:nth-child(1) {
+            font-size: 1.4rem;
+          }
+
+          span:nth-child(2) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .page {
+    display: flex;
+    justify-content: start;
+
+    .total {
+      margin-top: 6px;
+    }
+  }
+}

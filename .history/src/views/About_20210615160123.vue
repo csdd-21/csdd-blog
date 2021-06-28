@@ -1,0 +1,41 @@
+<template>
+  <div class="about">
+    <div class="content" v-html="postHtml"></div>
+  </div>
+</template>
+
+<script>
+import MarkdownIt from "markdown-it";
+import { mapState, mapMutations, mapActions } from "vuex";
+export default {
+  components: {
+    name: "About",
+  },
+  props: {},
+  data() {
+    return {
+      postHtml: "",
+    };
+  },
+  watch: {},
+  computed: {},
+  methods: {
+     ...mapMutations(["SET_SHOW_FOOTER"]),
+  },
+  created() {},
+  mounted() {
+    this.SET_SHOW_FOOTER({ showFooter: true });
+    this.$axios
+      .get("/about/about.md")
+      .then((res) => {
+        this.postHtml = new MarkdownIt({ html: true }).render(res.data);
+      })
+      .catch(function (err) {})
+      .then(function () {});
+  },
+};
+</script>
+
+<style lang="less">
+@import url("../assets/allCss/About.less");
+</style>

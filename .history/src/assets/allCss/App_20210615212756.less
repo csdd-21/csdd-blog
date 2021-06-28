@@ -1,0 +1,170 @@
+@color: rgb(128, 130, 128);
+@bgColor:rgb(242, 248, 242);
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(53, 3, 3);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: lightgray;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: gray;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+// App.vue
+@media (max-width: 600px) {
+  .el-header {
+    display: none;
+  }
+
+  .contentDiv {
+    padding-top: 60px;
+  }
+}
+
+@media (min-width: 600px) {
+  .navSm {
+    display: none;
+    justify-content: center;
+  }
+
+  .contentDiv {
+    padding-top: 80px;
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  #app {
+    position: relative;
+    min-height: 100vh;
+
+    .el-container {
+      .navSm {
+        min-height: 5vh;
+        position: fixed;
+        z-index: 999;
+        background-color: @bgColor;
+        width: 100%;
+
+        .nav {
+          span:nth-child(1) {
+            padding: 1.2rem 0.8rem;
+          }
+
+          span:nth-child(2) {
+            padding: 1rem;
+            text-align: right;
+          }
+        }
+
+        .navTabs {
+          background-color: @bgColor;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          z-index: 999;
+          box-shadow: 0 2px 16px 0 @bgColor;
+
+          i {
+            color:@color;
+            text-align: right;
+            padding: 1rem;
+            box-sizing: border-box;
+            font-size: 14px;
+          }
+
+          span {
+            color:@color;
+            margin: 0 1rem 1rem 1rem;
+            border-bottom: 1px solid @color;
+          }
+        }
+      }
+
+      .el-header {
+        min-height: 5vh;
+        position: fixed;
+        z-index: 999;
+        background-color: @bgColor;
+        width: 100%;
+
+        .navLg {
+          display: flex;
+          justify-content: space-between;
+          padding-right: 2rem;
+
+          .imgWrapper {
+            line-height: 6rem;
+            color: @color;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding-left: 2rem;
+&:hover{
+  color: fade(@color,70%);
+}
+            .blogImg {
+              transform: scale(0.5, 0.5);
+              padding-bottom: 12px;
+            }
+          }
+
+          .el-tabs__item {
+            color: @color;
+
+            &:hover {
+              color: fade(@color,70%);
+            }
+          }
+
+          .el-tabs__item.is-active {
+            color: @color;
+            font-weight: 700;
+          }
+
+          .el-tabs__active-bar {
+            background-color: @color;
+          }
+        }
+      }
+
+      .el-footer {
+        position: absolute;
+        bottom: 0;
+        background-color:rgb(0,0,0);
+        color: rgb(255,255,255);
+        text-align: center;
+        line-height: 60px;
+        width: 100%;
+
+        a {
+          color: rgb(255,255,255);
+        }
+      }
+
+      .contentDiv {
+        min-height: 80vh;
+        padding-bottom: 80px;
+      }
+    }
+  }
+}

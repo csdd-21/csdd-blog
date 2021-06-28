@@ -1,0 +1,108 @@
+@color: rgb(128, 130, 128);
+@bgColor: rgb(225, 238, 225);
+
+@media (max-width: 600px) {
+  .tocLg {
+    display: none;
+  }
+
+  .mdFile {
+    width: 100%;
+  }
+
+  .el-backtop {
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) {
+  .title {
+    display: none;
+  }
+
+  .tocSm {
+    display: none;
+  }
+
+  .mdFile {
+    width: 80%;
+  }
+
+  .icon-sanhang {
+    display: none;
+  }
+}
+
+.article {
+  .title {
+    background-color: @bgColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 40px;
+    z-index: 200;
+
+    .icon-sanhang {
+      line-height: 48px;
+      color: @color;
+      font-size: 1.6rem;
+      padding-left: 2rem;
+      z-index:200;
+    }
+  }
+
+  .toc {
+    overflow-y: auto;
+    word-break: break-all;
+    height: 100%;
+
+    a {
+      display: block;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .tocSm {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .icon-guanbi {
+      font-size: 1.2rem;
+      text-align: right;
+      padding: 1rem;
+    }
+  }
+
+  .tocLg {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+  }
+
+  .mdFile {
+    position: absolute;
+    right: 0;
+    height: 90%;
+    word-break: break-all;
+    overflow-y: auto;
+    padding: 0px 10px 40px 10px;
+
+    .el-backtop {
+      background-color: rgba(255, 255, 255, 0.4);
+      color: rgb(174, 197, 175);
+      margin-bottom: -42px;
+      margin-right: -20px;
+    }
+  }
+}
