@@ -1,0 +1,52 @@
+@color: rgb(128, 130, 128);
+
+@study_a_color: rgba(161, 197, 222, 0.3);
+@study_b_color: rgba(161, 197, 222, 0.6);
+
+
+@memoryColor: rgba(242, 218, 195, 0.8);
+@musicColor: rgba(192, 129, 129, 0.6);
+@travelColor: rgba(153, 188, 211, 0.6);
+@delicacyColor: rgba(163, 197, 162, 0.6);
+
+.tags {
+  display: flex;
+  justify-content: start;
+  color: @color;
+
+  span {
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 6px 6px 6px 0;
+    padding: 0 10px;
+  }
+
+  .study_a_class {
+    background-color: @study_a_color;
+  }
+
+  .study_b_class {
+    background-color: @study_b_color;
+  }
+
+
+  // color for life
+  .memory {
+    background-color: @memoryColor;
+  }
+
+  .music {
+    background-color: @musicColor;
+  }
+
+  .travel {
+    background-color: @travelColor;
+  }
+
+  .delicacy {
+    background-color: @delicacyColor;
+  }
+}

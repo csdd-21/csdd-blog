@@ -1,0 +1,49 @@
+@color: rgb(128, 130, 128);
+// tags color for study page
+@study_a_color: rgba(241, 223, 206, 0.6);
+@study_b_color: rgba(177, 203, 216, 0.6);
+// tags color for life page
+@life_a_color: rgba(163, 197, 162, 0.6); 
+@life_b_color: rgba(192, 129, 129, 0.6);
+@life_c_color: rgba(153, 188, 211, 0.6);
+@life_d_color: rgba(241, 223, 206, 0.6);
+
+.tags {
+  display: flex;
+  justify-content: start;
+  color: @color;
+
+  span {
+    color:@color;
+    font-size: 13px;
+    line-height: 18px;
+    border-radius: 6px;
+    margin-top: 6px;
+    padding: 4px 10px;
+  }
+
+  .study_a_class {
+    background-color: @study_a_color;
+  }
+
+  .study_b_class {
+    background-color: @study_b_color;
+  }
+
+  // color for life
+  .life_a_class {
+    background-color: @life_a_color;
+  }
+
+  .life_b_class {
+    background-color: @life_b_color;
+  }
+
+  .life_c_class {
+    background-color: @life_c_color;
+  }
+
+  .life_d_class {
+    background-color: @life_d_color;
+  }
+}

@@ -26,7 +26,7 @@ app.get("/tags", function (req, res) {
                 tags.push(j)
             })
         })
-        console.log('tags req ----', req.query, 'tags err ----', err, 'tags res ----', Array.from(new Set(tags)));
+        console.log('tags req ---', req.query, 'tags err ---', err, 'tags res ---', Array.from(new Set(tags)));
         res.json({ parent: req.query.parent, tags: Array.from(new Set(tags)) })
     })
 })
@@ -41,7 +41,8 @@ app.get("/article", function (req, res) {
     }
     if (req.query.title) {
         params = {
-            title: { $regex: req.query.title },
+            parent: req.query.parent,
+            title: { $regex: req.query.title, $options: 'i' },
             tags: { $in: req.query.checkTags }
         }
     }
@@ -68,8 +69,53 @@ app.get("/article", function (req, res) {
             })
     })
     Promise.all([promise_1, promise_2]).then((datas) => {
-        console.log('articles req ----', req.query, 'articles res -----', { total: datas[0], datas: datas[1] });
-        res.json({ parent: req.query.parent, total: datas[0], datas: datas[1] })
+        let resDatas = JSON.parse(JSON.stringify(datas[1]))
+        resDatas.forEach(i => {
+            let tagsArr = []
+            i.tags.forEach(j => {
+                // tags for study page
+                if (j == "CSS") {
+                    tagsArr.push({
+                        name: j,
+                        class: "study_a_class",
+                    })
+                }
+                if (j == "JavaScript") {
+                    tagsArr.push({
+                        name: j,
+                        class: "study_b_class",
+                    })
+                }
+                // tags for life page
+                if (j == "Delicacy") {
+                    tagsArr.push({
+                        name: j,
+                        class: "life_a_class",
+                    })
+                }
+                if (j == "Memory") {
+                    tagsArr.push({
+                        name: j,
+                        class: "life_b_class",
+                    })
+                }
+                if (j == "Music") {
+                    tagsArr.push({
+                        name: j,
+                        class: "life_c_class",
+                    })
+                }
+                if (j == "Travel") {
+                    tagsArr.push({
+                        name: j,
+                        class: "life_d_class",
+                    })
+                }
+            })
+            i.tags = tagsArr
+        });
+        console.log('articles req ---', req.query, 'articles res ---', { parent: req.query.parent, total: datas[0], datas: resDatas });
+        res.json({ parent: req.query.parent, total: datas[0], datas: resDatas })
     }).catch((err) => { console.log('articles err ---', err) })
 })
 
