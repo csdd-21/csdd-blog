@@ -1,8 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  // publicPath: process.env.NODE_ENV === 'development' ? '/':'./',
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === 'development' ? '/':'./',
   outputDir: "dist",
   assetsDir: "./static",
   devServer: {
